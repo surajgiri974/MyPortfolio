@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Portfolio Details - MyResume Bootstrap Template</title>
+  <meta name="description" content="Explore Suraj Giri's developer portfolio showcasing projects, skills, and achievements in web, application and software development.">
+  <meta name="keywords" content="developer portfolio, Suraj Giri, surajgiri974, web developer, software developer, programming projects, coding portfolio, application developer, database">
+  
+  {% include 'imports.html' %}
+
+  <style>
+    @media (min-width:1000px) {
+      img {
+        height: 600px;     
+        object-position: center;
+        object-fit: contain;   
+  }
+    }
+  </style>
+</head>
+
+<body class="portfolio-details-page">
+
+  {% include 'navigation.html' %}
+
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title" data-aos="fade">
+      <div class="container">
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="{% url 'portfolio:home' %}">Home</a></li>
+            <li class="current">Portfolio Details</li>
+          </ol>
+        </nav>
+        <h1>Portfolio Details</h1>
+      </div>
+    </div><!-- End Page Title -->
+
+    <!-- Portfolio Details Section -->
+    <section id="portfolio-details" class="portfolio-details section">
+
+      <div class="container" data-aos="fade-up">
+
+        <div class="portfolio-details-slider swiper init-swiper">
+          <script type="application/json" class="swiper-config">
+            {
+              "loop": true,
+              "speed": 600,
+              "autoplay": {
+                "delay": 5000
+              },
+              "slidesPerView": "auto",
+              "navigation": {
+                "nextEl": ".swiper-button-next",
+                "prevEl": ".swiper-button-prev"
+              },
+              "pagination": {
+                "el": ".swiper-pagination",
+                "type": "bullets",
+                "clickable": true
+              }
+            }
+          </script>
+          <div class="swiper-wrapper align-items-center">
+
+          {% if project_images %}
+            {% for i in project_images %}
+              <div class="swiper-slide"> 
+                <img src="{{ i.image.url }}" alt=""  />
+              </div>
+            {% endfor %}
+          {% else %}
+            <p>No images available for this project.</p>
+          {% endif %}
+          
+          </div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+        <div class="row justify-content-between gy-4 mt-4">
+
+          <div class="col-lg-8" data-aos="fade-up">
+            <div class="portfolio-description">
+              <h2>{{ project_info.project_name }}</h2>
+              <p>
+                {{ project_info.intro }}
+              </p>
+              <p >
+                {{ project_info.project_description|linebreaks }}
+              </p>
+             
+            </div>
+          </div>
+
+          <div class="col-lg-3" data-aos="fade-up" data-aos-delay="100">
+            <div class="portfolio-info">
+              <h3>Project information</h3>
+              <ul>
+                <li><strong>Category</strong>  {{ project_info.category_type }}</li>
+                <!-- <li><strong>Client</strong> ASU Company</li> -->
+                <li><strong>Project Stack</strong>
+                   {{ project_info.stack|linebreaks }}
+               </li>
+               <li><strong>Status</strong>{{ project_info.status }}</li>
+                <!-- <li><strong>Project URL</strong> <a href="#">www.example.com</a></li> -->
+                <li><a href="#" class="btn-visit align-self-start">Visit Website</a></li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- /Portfolio Details Section -->
+
+  </main>
+
+  {% include 'footer.html' %}
+
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  {% include 'JSimport.html' %}
+
+</body>
+
+</html>
