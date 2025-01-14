@@ -22,7 +22,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', '60c^hr33kv_ig4$1b@z#oh(fh59au(!=bvpc(suc1)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', 'False').lower() in ('true', '1', 'yes')
 
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'suraj-giri-portfolio.onrender.com').split(',')
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '127.0.0.1').split(',')
 
 # Application definition
 
