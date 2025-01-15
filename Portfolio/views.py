@@ -25,7 +25,7 @@ def downloadResume(request):
     try:
         import os
         from MyPortfolio import settings
-        file_path = os.path.join(settings.MEDIA_ROOT,'ss',"Resume.pdf")
+        file_path = os.path.join(settings.MEDIA_ROOT,"Resume.pdf")
         if not os.path.exists(file_path):
             raise Http404("File Not Found")
         response = FileResponse(open(file_path,'rb'),content_type="application/pdf")
