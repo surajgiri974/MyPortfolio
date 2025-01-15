@@ -11,9 +11,9 @@ class Project(models.Model):
     ]
 
     STATUS_CHOICES = [
-        ('ongoing', 'Ongoing'),
-        ('completed', 'Completed'),
-        ('pending', 'Pending'),
+        ('Ongoing', 'Ongoing'),
+        ('Completed', 'Completed'),
+        ('Pending', 'Pending'),
     ]
 
 

@@ -376,8 +376,10 @@ Beyond coding, I enjoy riding cycle, which help me stay active and creatively in
               {% if project %}
               {% for i in project %}
                 <div class="col-lg-4 col-md-6 portfolio-item isotope-item">
-                  <img src="{{ i.images.url }}" class="portfolio-image" alt="{{ i.project_name }}">
-                  <div class="portfolio-info">
+                  <a href="{% url 'portfolio:project' i.project_name %}" title="More Details" class="details-link">
+                    <img src="{{ i.images.url }}" class="portfolio-image" alt="{{ i.project_name }}" style="object-fit: fill;">
+                  </a>
+                    <div class="portfolio-info">
                     <h4>{{ i.project_name }}</h4>
                     <p>{{ i.intro }}</p>
                     <a href="{{ i.images.url }}" title="{{ i.project_name }}" data-gallery="portfolio-gallery-app" class="glightbox preview-link">
@@ -410,10 +412,8 @@ Beyond coding, I enjoy riding cycle, which help me stay active and creatively in
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade" data-aos-delay="100">
-
         <div class="row gy-4">
-
-          <div class="col-lg-4">
+          <div class="col-lg-3">
             <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
               <i class="bi bi-geo-alt flex-shrink-0"></i>
               <div>
@@ -422,23 +422,33 @@ Beyond coding, I enjoy riding cycle, which help me stay active and creatively in
               </div>
             </div><!-- End Info Item -->
 		  </div>
-		  <div class="col-lg-4">
+		  <div class="col-lg-3">
                     
 		  <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
-              <i class="bi bi-telephone flex-shrink-0"></i>
+        <a href="tel:+918308149964">  <i class="bi bi-telephone flex-shrink-0"></i></a>
               <div>
                 <h3>Call Me</h3>
                 <p><a href="tel:+918308149964">+91 8308149964</a></p>
               </div>
             </div><!-- End Info Item -->
 		  </div>
-		  <div class="col-lg-4">
+		  <div class="col-lg-3">
           
             <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
-              <i class="bi bi-envelope flex-shrink-0"></i>
+              <a href="mailto:surajgiri974@gmail.com"> <i class="bi bi-envelope flex-shrink-0"></i></a>
               <div>
                 <h3>Email Us</h3>
                 <p><a href="mailto:surajgiri974@gmail.com">surajgiri974@gmail</a></p>
+              </div>
+            </div><!-- End Info Item -->
+
+        </div>
+        <div class="col-lg-3">  
+            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
+              <a href="{% url 'portfolio:download-resume' %}"><i class="bi bi-file-earmark-person"></i></a>
+              <div>
+                <h3>Resume</h3>
+                <p><a href="mailto:surajgiri974@gmail.com">Resume</a></p>
               </div>
             </div><!-- End Info Item -->
 
