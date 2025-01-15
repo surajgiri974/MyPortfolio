@@ -29,7 +29,7 @@ def downloadResume(request):
         if not os.path.exists(file_path):
             raise Http404("File Not Found")
         response = FileResponse(open(file_path,'rb'),content_type="application/pdf")
-        response['Content-Disposition'] = f'attachment; filename="Suraj_Giri_Resume" '
+        response['Content-Disposition'] = f'attachment; filename="Suraj_Giri_Resume.pdf" '
         return response
     except:
         raise Http404("File Not Found")
